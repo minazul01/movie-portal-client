@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+body {
+    background: linear-gradient(to right, rgb(229, 225, 226), rgb(240, 233, 240));
+  }
+
+  .active {
+    color: #007bff;
+    font-weight: bold;
+    border-bottom: 2px solid #007bff;
+  }
