@@ -17,7 +17,10 @@ const AllMovie = () => {
       </p>
       <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-10">
         {data?.map((card) => (
-          <AllMovieCard key={card._id} card={card} />
+          <AllMovieCard 
+          key={card._id}
+
+          card={card} />
         ))}
       </div>
     </div>

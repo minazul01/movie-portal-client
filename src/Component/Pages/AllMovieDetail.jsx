@@ -1,9 +1,51 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { useState } from "react";
+import { Link, Navigate, useLoaderData, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AllMovieDetail = () => {
   const movie = useLoaderData(); // this is the single movie object
 
-  const { title, poster, description, genre, duration, releaseYear } = movie;
+  const [data, setData] = useState(movie);
+
+  const { title, poster, description, genre, duration, releaseYear, _id } =
+    data;
+
+    const navigate =useNavigate()
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:8000/features/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if(data.deletedCount == 1){
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "Delete success"
+              });
+              navigate('/all_movie');
+
+              const reaming = data.filter(d => d._id !== id);
+              setData(reaming);
+
+            }
+          });
+      }
+    });
+  };
+
   return (
     <div>
       <div className="md:w-full card lg:card-side bg-base-100 shadow-sm my-20">
@@ -26,17 +68,21 @@ const AllMovieDetail = () => {
             {genre?.[0]},{genre?.[1]}, {genre?.[2]}
           </h5>
           <div className="flex justify-between">
-            <button className="p-2 bg-lime-400 rounded-md hover:p-2 btn btn-outline cursor-pointer">
+            <button
+              onClick={() => handleDelete(_id)}
+              className="p-2 bg-lime-400 rounded-md hover:p-2 btn btn-outline cursor-pointer"
+            >
               Delete Movie
             </button>
             <button className="p-2 bg-lime-400 rounded-md hover:p-2 btn btn-outline cursor-pointer">
               Add Favourite
             </button>
           </div>
-          <Link className="p-2 bg-lime-400 rounded-md hover:p-2 btn btn-outline cursor-pointer" to={"/all_movie"}>
-            <button >
-              All-Movie
-            </button>
+          <Link
+            className="p-2 bg-lime-400 rounded-md hover:p-2 btn btn-outline cursor-pointer"
+            to={"/all_movie"}
+          >
+            <button>All-Movie</button>
           </Link>
         </div>
       </div>

@@ -5,6 +5,7 @@ import { BiSolidLike } from "react-icons/bi";
 const AllMovieCard = ({ card }) => {
   const { poster, _id, title, rating } = card;
 
+ 
   return (
     <div>
       <div className="">

@@ -4,21 +4,40 @@ const AddMovie = () => {
   const handleForm = (event) => {
     event.preventDefault();
     const form = event.target;
-    const name = form.name.value;
+    const title = form.name.value;
+    const genre = form.genre.value;
     const duration = form.duration.value;
-    const release = form.release.value;
+    const releaseYear = form.release.value;
     const rating = form.rating.value;
-    const photo = form.photo.value;
-    const summary = form.summary.value;
-    
-    const inputData = { name, duration, release, rating, photo, summary };
-
+    const poster = form.photo.value;
+    const description = form.summary.value;
+    // console.log(name);
+    const inputData = {
+      poster,
+      title,
+      genre,
+      duration,
+      releaseYear,
+      rating,
+      description,
+    };
     console.log(inputData);
+    fetch("http://localhost:8000/features", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(inputData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
   };
 
   return (
     <div>
-      <div className="h-screen">
+      <div className="">
         <section className="w-full">
           {/* title */}
           <div className="w-full flex flex-col items-center justify-center">
@@ -61,11 +80,11 @@ const AddMovie = () => {
                 <label className="relative">
                   <input
                     type="supplier"
-                    name="release"
+                    name="genre"
                     className="peer bg-white border-[#e5eaf2] border rounded-2xl outline-none px-4 py-3 w-full focus:border-[#3B9DF8] transition-colors duration-300"
                   />
                   <span className=" absolute top-3 left-5 peer-focus:-top-3 peer-focus:bg-white peer-focus:left-2 peer-focus:scale-[0.9] peer-focus:text-[#3B9DF8] text-[#777777] peer-focus:px-1 transition-all duration-300 ">
-                    Release Year
+                    Genre
                   </span>
                 </label>
               </div>
@@ -87,12 +106,12 @@ const AddMovie = () => {
               <div className="flex flex-col gap-[5px] w-full sm:w-[50%] my-5">
                 <label className="relative">
                   <input
-                    type="category"
-                    name="photo"
+                    type="supplier"
+                    name="release"
                     className="peer bg-white border-[#e5eaf2] border rounded-2xl outline-none px-4 py-3 w-full focus:border-[#3B9DF8] transition-colors duration-300"
                   />
                   <span className=" absolute top-3 left-5 peer-focus:-top-3 peer-focus:bg-white peer-focus:left-2 peer-focus:scale-[0.9] peer-focus:text-[#3B9DF8] text-[#777777] peer-focus:px-1 transition-all duration-300 ">
-                    Image url
+                    Release Year
                   </span>
                 </label>
               </div>
@@ -100,7 +119,7 @@ const AddMovie = () => {
               <div className="flex flex-col gap-[5px] w-full sm:w-[50%] my-5">
                 <label className="relative">
                   <input
-                    type="details"
+                    type="teste"
                     name="summary"
                     className="peer bg-white border-[#e5eaf2] border rounded-2xl outline-none px-4 py-3 w-full focus:border-[#3B9DF8] transition-colors duration-300"
                   />
@@ -109,6 +128,19 @@ const AddMovie = () => {
                   </span>
                 </label>
               </div>
+            </div>
+
+            <div className="flex flex-col gap-[5px] w-full sm:w-[100%] my-5">
+              <label className="relative">
+                <input
+                  type="images"
+                  name="photo"
+                  className="peer bg-white border-[#e5eaf2] border rounded-2xl outline-none px-4 py-3 w-full focus:border-[#3B9DF8] transition-colors duration-300"
+                />
+                <span className=" absolute top-3 left-5 peer-focus:-top-3 peer-focus:bg-white peer-focus:left-2 peer-focus:scale-[0.9] peer-focus:text-[#3B9DF8] text-[#777777] peer-focus:px-1 transition-all duration-300 ">
+                  Image url
+                </span>
+              </label>
             </div>
             <div className="text-center">
               <button
