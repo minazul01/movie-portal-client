@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../Header/Header';
-import FeatureMovie from './FeatureMovie';
+import FeatureMovie from '../Header/FeatureMovie';
+
 
 
 const Home = () => {

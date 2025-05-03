@@ -3,8 +3,9 @@ import App from "./App";
 
 import Home from "./Pages/Home";
 import AllMovie from "./Pages/AllMovie";
-import FeatureDetail from "./Header/FeatureDetail";
+
 import AddMovie from "./Pages/AddMovie";
+import AllMovieDetail from "./Pages/AllMovieDetail";
 
 const router = createBrowserRouter([
   {
@@ -20,20 +21,19 @@ const router = createBrowserRouter([
         element: <AllMovie />,
       },
       {
-        path: "/add_movie",
-        element: <AddMovie />,
+        path: "/details/:id",
+        element: <AllMovieDetail />,
+        loader: async ({ params }) => {
+          const res = await fetch("http://localhost:8000/features");
+          const data = await res.json();
+          const singleData = data.find((data) => data._id == params.id);
+          // console.log(data)
+          return singleData;
+        },
       },
       {
-        path: "/details/:id",
-        element: <FeatureDetail />,
-        loader: async ({params}) => {
-          const res = await fetch(`http://localhost:8000/features`);
-          const data = await res.json();
-         
-          const singleData = data.find(data => data.id == params.id);
-          return singleData
-          
-        },
+        path: "/add_movie",
+        element: <AddMovie />,
       },
     ],
   },
