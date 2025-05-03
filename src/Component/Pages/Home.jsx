@@ -1,10 +1,14 @@
 import React from 'react';
+import Header from '../Header/Header';
+import FeatureMovie from './FeatureMovie';
+
 
 const Home = () => {
+    
     return (
         <div className='min-h-screen'>
-            <h1>hello home</h1>
-           
+           <Header />
+           <FeatureMovie />
         </div>
     );
 };
