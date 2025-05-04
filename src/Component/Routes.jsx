@@ -6,6 +6,7 @@ import AllMovie from "./Pages/AllMovie";
 
 import AddMovie from "./Pages/AddMovie";
 import AllMovieDetail from "./Pages/AllMovieDetail";
+import Favourite from "./Pages/Favourite";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/all_movie",
+        path: "/all_movies",
         element: <AllMovie />,
       },
       {
@@ -32,9 +33,13 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "/add_movie",
+        path: "/add_movies",
         element: <AddMovie />,
       },
+      {
+        path: "/add_favourites",
+        element: <Favourite />
+      }
     ],
   },
 ]);

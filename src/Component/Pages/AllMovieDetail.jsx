@@ -35,7 +35,7 @@ const AllMovieDetail = () => {
                 text: "Your file has been deleted.",
                 icon: "Delete success"
               });
-              navigate('/all_movie');
+              navigate('/all_movies');
 
               const reaming = data.filter(d => d._id !== id);
               setData(reaming);
@@ -45,6 +45,12 @@ const AllMovieDetail = () => {
       }
     });
   };
+
+
+  // favourite btn
+  const handleFavourite = (id) => {
+console.log(id)
+  }
 
   return (
     <div>
@@ -74,7 +80,7 @@ const AllMovieDetail = () => {
             >
               Delete Movie
             </button>
-            <button className="p-2 bg-lime-400 rounded-md hover:p-2 btn btn-outline cursor-pointer">
+            <button onClick={() => handleFavourite(_id)} className="p-2 bg-lime-400 rounded-md hover:p-2 btn btn-outline cursor-pointer">
               Add Favourite
             </button>
           </div>

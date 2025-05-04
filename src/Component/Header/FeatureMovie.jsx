@@ -21,7 +21,7 @@ const FeatureMovie = () => {
           journeys, offering something unforgettable for every viewer.
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {
             rating.map(data => <FeatureMovieCard key={data._id} data={data} />)
         }

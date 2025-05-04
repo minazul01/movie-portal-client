@@ -1,11 +1,11 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import Logo from "../../assets/55555.jpg"
+import Logo from "../../assets/55555.jpg";
 
 const Navbar = () => {
   return (
     <div>
-      <div className="navbar">
+      <div className="navbar border-2 p-5 bg-[#0046BE]">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -36,20 +36,22 @@ const Navbar = () => {
                   </li>
                 </NavLink>
 
-                <NavLink to="/all_movie">
+                <NavLink to="/all_movies">
                   <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">
                     All-Movie
                   </li>
                 </NavLink>
-                <NavLink to="/add_movie">
+                <NavLink to="/add_movies">
                   <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">
                     Add-Movie
                   </li>
                 </NavLink>
 
-                <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">
-                  blogs
-                </li>
+                <NavLink to="/add_Favourites">
+                  <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">
+                    Add-Favourite
+                  </li>
+                </NavLink>
 
                 <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">
                   shop
@@ -57,8 +59,11 @@ const Navbar = () => {
               </ul>
             </ul>
           </div>
-          <Link to="/" className="text-xs font-bold md:text-3xl flex flex-row gap-0.5 items-center py-2 px-4 bg-white rounded-full">
-          <img className="w-5 md:w-8" src={Logo} alt="" />
+          <Link
+            to="/"
+            className="text-xs font-bold md:text-3xl flex flex-row gap-0.5 items-center py-2 px-4 bg-white rounded-full"
+          >
+            <img className="w-5 md:w-8" src={Logo} alt="" />
             Movie Portal
           </Link>
         </div>
@@ -71,7 +76,7 @@ const Navbar = () => {
                 </li>
               </NavLink>
 
-              <NavLink to="/all_movie">
+              <NavLink to="/all_movies">
                 <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">
                   All-Movie
                 </li>
@@ -82,9 +87,11 @@ const Navbar = () => {
                 </li>
               </NavLink>
 
-              <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">
-                blogs
-              </li>
+              <NavLink to="/add_Favourites">
+                <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">
+                  Add-Favourite
+                </li>
+              </NavLink>
 
               <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">
                 shop

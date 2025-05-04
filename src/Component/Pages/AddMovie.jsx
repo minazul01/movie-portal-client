@@ -340,7 +340,7 @@ const AddMovie = () => {
           </form>
         </section>
         <div className="text-center my-20">
-          <Link to="/all_movie">
+          <Link to="/all_movies">
             <button className="px-6 py-2 border border-[#3B9DF8] bg-primary text-[#fff] hover:bg-secondary hover:text-[#3B9DF8] transition duration-300 rounded my-10 cursor-pointer">
               Move to All-Movie
             </button>
