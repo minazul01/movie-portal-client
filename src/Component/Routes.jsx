@@ -7,6 +7,7 @@ import AllMovie from "./Pages/AllMovie";
 import AddMovie from "./Pages/AddMovie";
 import AllMovieDetail from "./Pages/AllMovieDetail";
 import Favourite from "./Pages/Favourite";
+import ContactUs from "./Pages/ContactUs";
 
 const router = createBrowserRouter([
   {
@@ -38,7 +39,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/add_favourites",
-        element: <Favourite />
+        element: <Favourite />,
+        loader: () => fetch('http://localhost:8000/favourites')
+      },
+      {
+        path: "/add_us",
+        element: <ContactUs />
       }
     ],
   },

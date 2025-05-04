@@ -192,7 +192,7 @@ const AddMovie = () => {
       description,
     };
 
-    console.log(inputData);
+   
     fetch("http://localhost:8000/features", {
       method: "POST",
       headers: {
@@ -220,8 +220,9 @@ const AddMovie = () => {
           {/* title */}
           <div className="w-full flex flex-col items-center justify-center">
             <h1 className="mt-10 text-[2rem] font-bold text-[#3B9DF8] leading-[36px]">
-              Add Coffee
+              Add Movie
             </h1>
+            <p className="text-base text-gray-500 font-medium text-center my-5">Your movie added by all movie section. Stream the latest movies and timeless classics live <br /> perfect for movie nights with friends and family.</p>
           </div>
 
           {/* form area */}

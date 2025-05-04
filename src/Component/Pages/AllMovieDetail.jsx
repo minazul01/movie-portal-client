@@ -10,7 +10,7 @@ const AllMovieDetail = () => {
   const { title, poster, description, genre, duration, releaseYear, _id } =
     data;
 
-    const navigate =useNavigate()
+  const navigate = useNavigate();
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -29,28 +29,58 @@ const AllMovieDetail = () => {
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
-            if(data.deletedCount == 1){
+            if (data.deletedCount == 1) {
               Swal.fire({
                 title: "Deleted!",
                 text: "Your file has been deleted.",
-                icon: "Delete success"
+                icon: "Delete success",
               });
-              navigate('/all_movies');
+              navigate("/all_movies");
 
-              const reaming = data.filter(d => d._id !== id);
+              const reaming = data.filter((d) => d._id !== id);
               setData(reaming);
-
             }
           });
       }
     });
   };
 
-
   // favourite btn
-  const handleFavourite = (id) => {
-console.log(id)
-  }
+  const handleFavourite = (movie) => {
+    // const movie = data.find((m) => m._id == id);
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, favouries it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch("http://localhost:8000/favourites", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(movie),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if(data){
+              Swal.fire({
+                title: "Favourite!",
+                text: "Your file has been added.",
+                icon: "success"
+              });
+            }
+            navigate("/all_movies");
+          });
+      }
+    });
+  };
 
   return (
     <div>
@@ -80,7 +110,10 @@ console.log(id)
             >
               Delete Movie
             </button>
-            <button onClick={() => handleFavourite(_id)} className="p-2 bg-lime-400 rounded-md hover:p-2 btn btn-outline cursor-pointer">
+            <button
+              onClick={() => handleFavourite(data)}
+              className="p-2 bg-lime-400 rounded-md hover:p-2 btn btn-outline cursor-pointer"
+            >
               Add Favourite
             </button>
           </div>

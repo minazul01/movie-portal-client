@@ -53,9 +53,11 @@ const Navbar = () => {
                   </li>
                 </NavLink>
 
-                <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">
-                  shop
-                </li>
+                <NavLink to="/add_us">
+                  <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">
+                    Contact Us
+                  </li>
+                </NavLink>
               </ul>
             </ul>
           </div>
@@ -81,7 +83,7 @@ const Navbar = () => {
                   All-Movie
                 </li>
               </NavLink>
-              <NavLink to="/add_movie">
+              <NavLink to="/add_movies">
                 <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">
                   Add-Movie
                 </li>
@@ -93,9 +95,11 @@ const Navbar = () => {
                 </li>
               </NavLink>
 
-              <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">
-                shop
-              </li>
+              <NavLink to="/add_us">
+                <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">
+                  Contact Us
+                </li>
+              </NavLink>
             </ul>
           </ul>
         </div>

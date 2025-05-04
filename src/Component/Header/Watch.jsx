@@ -3,7 +3,7 @@ import { BsArrowRight } from "react-icons/bs";
 
 const Watch = () => {
   return (
-    <div className="flex flex-col gap-10 md:flex-row items-center justify-center">
+    <div className="flex flex-col gap-10 md:flex-row items-center justify-center p-5 bg-base-100 rounded-md">
       <div className="flex flex-col justify-center space-y-8">
         <div className="flex flex-row items-center gap-5 text-xl text-gray-500 font-bold">
           <BsArrowRight />
