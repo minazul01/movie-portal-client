@@ -63,7 +63,7 @@ const Navbar = () => {
           </div>
           <Link
             to="/"
-            className="text-xs font-bold md:text-3xl flex flex-row gap-0.5 items-center py-2 px-4 bg-white rounded-full"
+            className="text-xs font-bold md:text-3xl flex flex-row gap-0.5 items-center text-white"
           >
             <img className="w-5 md:w-8" src={Logo} alt="" />
             Movie Portal
@@ -104,7 +104,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end text-xs md:text-2xl cursor-pointer">
-          <a className="py-2 px-8 bg-white rounded-full">Login</a>
+          <a className="py-2 px-8 bg-white rounded-full">Register/Login</a>
         </div>
       </div>
     </div>

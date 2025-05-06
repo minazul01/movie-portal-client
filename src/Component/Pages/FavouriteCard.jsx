@@ -1,16 +1,17 @@
 import { BiSolidLike } from "react-icons/bi";
 import { BsArrowRight } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
+
 import Swal from "sweetalert2";
 
-const FavouriteCard = ({card, setData}) => {
+const FavouriteCard = ({card, setData, fData}) => {
 
-    const navigate = useNavigate()
+
 
     const { poster, _id, title, rating } = card;
 
 
      const handleDelete = (id) => {
+    
         Swal.fire({
           title: "Are you sure?",
           text: "You won't be able to revert this!",
@@ -26,16 +27,16 @@ const FavouriteCard = ({card, setData}) => {
             })
               .then((res) => res.json())
               .then((data) => {
-                console.log(data);
+          
                 if (data.deletedCount == 1) {
                   Swal.fire({
                     title: "Deleted!",
                     text: "Your file has been deleted.",
                     icon: "Delete success",
                   });
-                  navigate("/all_movies");
+                 
     
-                  const reaming = data.filter((d) => d._id !== id);
+                  const reaming = fData.filter((d) => d._id !== id);
                   setData(reaming);
                 }
               });

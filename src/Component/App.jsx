@@ -18,7 +18,7 @@ function App() {
 
   return (
     <>
-      <div className="container mx-auto">
+      <div className="">
         <dataContext.Provider value={feature}>
           <Navbar></Navbar>
           <Outlet></Outlet>
