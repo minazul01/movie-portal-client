@@ -8,6 +8,7 @@ import AddMovie from "./Pages/AddMovie";
 import AllMovieDetail from "./Pages/AllMovieDetail";
 import Favourite from "./Pages/Favourite";
 import ContactUs from "./Pages/ContactUs";
+import Register from "./Pages/authPages/Register";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "/add_us",
         element: <ContactUs />
+      },
+      {
+        path: "/register",
+        element: <Register />
       }
     ],
   },

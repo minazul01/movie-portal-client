@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../../assets/55555.jpg";
+import { authentication } from "../AuthProvider";
 
 const Navbar = () => {
+  const data = useContext(authentication);
+  console.log(data)
   return (
     <div>
       <div className="navbar border-2 p-5 bg-[#0046BE]">
@@ -104,7 +107,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end text-xs md:text-2xl cursor-pointer">
-          <a className="py-2 px-8 bg-white rounded-full">Register/Login</a>
+          <Link to="/register"><a className="px-2 py-2 md:px-8 bg-white rounded-full">Register/Login</a></Link>
         </div>
       </div>
     </div>
