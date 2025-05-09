@@ -1,18 +1,18 @@
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { authentication } from "../../AuthProvider";
 
 const Register = () => {
+  const { createEmailPass, updateProfile } = useContext(authentication);
+  // console.log(data)
 
-    const {createEmailPass, updateProfile} = useContext(authentication);
-    // console.log(data)
+  const [error, setError] = useState(null);
 
+  const navigate = useNavigate();
 
-    const [error, setError] = useState(null);
-
-
-  const handleClick = (e) => {
+  const formRef = useRef(null); 
+  const handleClick = async(e) => {
     e.preventDefault();
 
     setError("");
@@ -55,22 +55,18 @@ const Register = () => {
     }
 
     // register setup
-  createEmailPass(email, password)
-  .then(() => {
-    updateProfile(userName, image)
-  })
-
-
-
+   await createEmailPass(email, password).then(() => {
+     navigate("/")
+     formRef.current.reset();
+     updateProfile(userName, image);
+    });
 
     // If all valid
     toast.success("Congratulation! You are Registering...");
-
-  
   };
   return (
     <div>
-      <form action="" onSubmit={handleClick}>
+      <form ref={formRef} onSubmit={handleClick}>
         <h1 className="text-4xl font-bold text-center my-10">
           Please Register Now!
         </h1>

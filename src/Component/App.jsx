@@ -3,7 +3,6 @@ import Navbar from "./Header/Navbar";
 import Footer from "./Footer/Footer";
 import { createContext, useEffect, useState } from "react";
 
-
 // all-movie data context
 export const dataContext = createContext();
 
@@ -17,13 +16,14 @@ function App() {
       });
   }, []);
 
-  
   return (
     <>
       <div className="">
         <dataContext.Provider value={feature}>
           <Navbar></Navbar>
-          <Outlet></Outlet>
+          <div className="container mx-auto">
+            <Outlet></Outlet>
+          </div>
           <Footer></Footer>
         </dataContext.Provider>
       </div>

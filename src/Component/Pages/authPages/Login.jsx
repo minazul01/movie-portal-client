@@ -1,16 +1,19 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { authentication } from "../../AuthProvider";
 import { toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
+  const location = useLocation();
+  // console.log(location)
+  const navigate = useNavigate();
 
   const [error, setError] = useState("");
 
-  const {googleLogin, loginEmailPassword} = useContext(authentication);
-  // console.log(data)
+  const { googleLogin, loginEmailPassword } = useContext(authentication);
+
 
   const handleLoging = (e) => {
     e.preventDefault();
@@ -20,22 +23,26 @@ const Login = () => {
     const email = event.email.value;
     const password = event.password.value;
 
-    
-
     loginEmailPassword(email, password)
-    .then(() => {
-      toast.success("🎉 Congratulation! You are Login success...");
-      setError(""); // ✅ properly closed
-    })
-  .catch(error => {
-    setError("Login error:", error.message);
-  });
-
-   
-    
+      .then(() => {
+        toast.success("🎉 Congratulation! You are Login success...");
+        setError(""); // ✅ properly closed
+        navigate(location.state.from);
+      })
+      .catch((error) => {
+        setError("Login error:", error.message);
+      });
   };
 
 
+
+   const googleLog = () => {
+    googleLogin()
+    .then(() => {
+      navigate(location.state.from)
+     
+    });
+  };
   return (
     <div>
       <form onSubmit={handleLoging}>
@@ -62,12 +69,15 @@ const Login = () => {
                 className="input w-[250px] md:w-[450px] h-10 md:h-[60px] text-lg px-4 rounded-2xl"
                 placeholder="Password here"
               />
-             {error && <p className="text-red-500">{error}</p>}
+              {error && <p className="text-red-500">{error}</p>}
 
               <legend className="fieldset-legend text-base font-normal hover:underline">
                 Forget password?
               </legend>
-              <button onClick={googleLogin} className="bg-[#3B9DF8] text-white rounded-md mt-5 cursor-pointer py-[5px] pl-[5px] pr-4 flex items-center gap-[10px] text-[1rem] hover:bg-blue-500 transition-all duration-200">
+              <button
+                onClick={googleLog}
+                className="bg-[#3B9DF8] text-white rounded-md mt-5 cursor-pointer py-[5px] pl-[5px] pr-4 flex items-center gap-[10px] text-[1rem] hover:bg-blue-500 transition-all duration-200"
+              >
                 <div className="p-2 rounded-full bg-white">
                   <img
                     src="https://i.ibb.co/dQMmB8h/download-4-removebg-preview-1.png"

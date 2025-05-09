@@ -42,11 +42,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/add_movies",
-        element: <AddMovie />,
+        element: (
+          <PrivateRoute>
+            <AddMovie />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/add_favourites",
-        element: <Favourite />,
+        element: (
+          <PrivateRoute>
+            <Favourite />
+          </PrivateRoute>
+        ),
         loader: () => fetch("http://localhost:8000/favourites"),
       },
       {
