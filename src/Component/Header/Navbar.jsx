@@ -4,8 +4,8 @@ import Logo from "../../assets/55555.jpg";
 import { authentication } from "../AuthProvider";
 
 const Navbar = () => {
-  const data = useContext(authentication);
-  console.log(data)
+  const { user, logOut } = useContext(authentication);
+
   return (
     <div>
       <div className="navbar border-2 p-5 bg-[#0046BE]">
@@ -107,7 +107,17 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end text-xs md:text-2xl cursor-pointer">
-          <Link to="/register"><a className="px-2 py-2 md:px-8 bg-white rounded-full">Register/Login</a></Link>
+          {/* <Link to="/login" className="px-2 py-2 md:px-8 bg-white rounded-full">Register/Login</Link> */}
+          {user ? (
+            <button onClick={logOut} className="px-2 py-2 md:px-8 bg-white rounded-full cursor-pointer hover:bg-gray-300">LogOut</button>
+          ) : (
+            <Link
+              to="/login"
+              className="px-2 py-2 md:px-8 bg-white rounded-full"
+            >
+              Register/Login
+            </Link>
+          )}
         </div>
       </div>
     </div>

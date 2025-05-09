@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import { authentication } from "../../AuthProvider";
 
 const Register = () => {
+
+    const {createEmailPass, updateProfile} = useContext(authentication);
+    // console.log(data)
 
 
     const [error, setError] = useState(null);
@@ -19,6 +23,7 @@ const Register = () => {
     const email = event.email.value;
     const password = event.password.value;
     const conPassword = event.conPassword.value;
+    // console.log(userName, image, email, password, conPassword)
 
     // password and confirm password validation
     if (password !== conPassword) {
@@ -49,6 +54,15 @@ const Register = () => {
       return;
     }
 
+    // register setup
+  createEmailPass(email, password)
+  .then(() => {
+    updateProfile(userName, image)
+  })
+
+
+
+
     // If all valid
     toast.success("Congratulation! You are Registering...");
 
@@ -58,7 +72,7 @@ const Register = () => {
     <div>
       <form action="" onSubmit={handleClick}>
         <h1 className="text-4xl font-bold text-center my-10">
-          Please Registe Now!
+          Please Register Now!
         </h1>
         <div>
           <div className="hero min-h-screen my-10">
@@ -125,6 +139,7 @@ const Register = () => {
               </div>
             </div>
           </div>
+          <ToastContainer />
         </div>
       </form>
     </div>

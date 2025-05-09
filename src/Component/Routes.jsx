@@ -9,6 +9,8 @@ import AllMovieDetail from "./Pages/AllMovieDetail";
 import Favourite from "./Pages/Favourite";
 import ContactUs from "./Pages/ContactUs";
 import Register from "./Pages/authPages/Register";
+import Login from "./Pages/authPages/Login";
+import PrivateRoute from "./Pages/authPages/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -25,7 +27,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/details/:id",
-        element: <AllMovieDetail />,
+        element: (
+          <PrivateRoute>
+            <AllMovieDetail />
+          </PrivateRoute>
+        ),
         loader: async ({ params }) => {
           const res = await fetch("http://localhost:8000/features");
           const data = await res.json();
@@ -41,16 +47,20 @@ const router = createBrowserRouter([
       {
         path: "/add_favourites",
         element: <Favourite />,
-        loader: () => fetch('http://localhost:8000/favourites')
+        loader: () => fetch("http://localhost:8000/favourites"),
       },
       {
         path: "/add_us",
-        element: <ContactUs />
+        element: <ContactUs />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
       {
         path: "/register",
-        element: <Register />
-      }
+        element: <Register />,
+      },
     ],
   },
 ]);
