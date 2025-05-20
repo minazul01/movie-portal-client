@@ -9,7 +9,7 @@ export const authentication = createContext();
 const AuthProvider = ({children}) => {
 
     const [user, setUser] =useState(null);
-    console.log(user)
+  
     const [loading, setLoading] = useState(true);
 
     // create user with email or password

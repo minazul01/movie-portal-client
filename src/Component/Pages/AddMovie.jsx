@@ -215,7 +215,7 @@ const AddMovie = () => {
 
   return (
     <div>
-      <div className="">
+      <div className="container mx-auto">
         <section className="w-full">
           {/* title */}
           <div className="w-full flex flex-col items-center justify-center">

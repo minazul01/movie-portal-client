@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "./Header/Navbar";
-import Footer from "./Footer/Footer";
 import { createContext, useEffect, useState } from "react";
+import Footer from "./Footer/Footer"
 
 // all-movie data context
 export const dataContext = createContext();
@@ -21,12 +21,12 @@ function App() {
       <div className="">
         <dataContext.Provider value={feature}>
           <Navbar></Navbar>
-          <div className="container mx-auto">
+          <div className="">
             <Outlet></Outlet>
           </div>
-          <Footer></Footer>
         </dataContext.Provider>
       </div>
+      <Footer></Footer>
     </>
   );
 }

@@ -1,116 +1,63 @@
-import React from "react";
+import React, { useContext } from "react";
+import { dataContext } from "../App";
+import { Link } from "react-router-dom";
 
 const Header = () => {
+  const data = useContext(dataContext);
+
+  // 2020 ba tar porer movies, last 4 ta new release
+  const newMovie = data.filter((d) => d.releaseYear >= 2020).slice(-4);
+
   return (
-    <div>
-      <div className="carousel w-full my-10 rounded-lg">
-        <div id="item1" className="carousel-item w-full">
-          {/* img-1 */}
+    <div className="carousel w-full my-10 rounded-md">
+      {newMovie?.map((movie, index) => {
+        // slide id gula dynamic korchi: slide1, slide2 ...
+        const slideId = `slide${index + 1}`;
+
+       
+        const prevSlide = `slide${index === 0 ? newMovie.length : index}`;
+        const nextSlide = `slide${
+          index === newMovie.length - 1 ? 1 : index + 2
+        }`;
+
+        return (
           <div
-            className="hero h-[300px] md:h-[550px]"
-            style={{
-              backgroundImage:
-                "url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp)",
-            }}
+            key={movie._id}
+            id={slideId}
+            className="carousel-item relative w-full"
           >
-            <div className="hero-overlay"></div>
-            <div className="hero-content text-neutral-content text-center">
-              <div className="max-w-md">
-                <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                <p className="mb-5">
-                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                  assumenda excepturi exercitationem quasi. In deleniti eaque
-                  aut repudiandae et a id nisi.
-                </p>
-                <button className="btn btn-primary">Get Started</button>
+            <div
+              className="hero min-h-screen"
+              style={{
+                backgroundImage: `url(${movie.poster})`,
+              }}
+            >
+              <div className="hero-overlay"></div>
+              <div className="hero-content text-neutral-content text-center">
+                <div className="max-w-md">
+                  <h1 className="mb-5 text-5xl font-bold">New Release Movie</h1>
+                  <h1 className="mb-5 text-4xl font-bold">{movie.title}</h1>
+
+                  <p className="mb-5">Duration: {movie.duration}</p>
+                  <p className="mb-5">Rating: {movie.rating || "N/A"}</p>
+                  <Link to={`/details/${movie._id}`}>
+                    <button className="btn btn-primary">Details</button>
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div id="item2" className="carousel-item w-full">
-          {/* img-2 */}
-          <div
-            className="hero h-[300px] md:h-[550px]"
-            style={{
-              backgroundImage:
-                "url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp)",
-            }}
-          >
-            <div className="hero-overlay"></div>
-            <div className="hero-content text-neutral-content text-center">
-              <div className="max-w-md">
-                <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                <p className="mb-5">
-                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                  assumenda excepturi exercitationem quasi. In deleniti eaque
-                  aut repudiandae et a id nisi.
-                </p>
-                <button className="btn btn-primary">Get Started</button>
-              </div>
+
+            <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+              <a href={`#${prevSlide}`} className="btn btn-circle">
+                ❮
+              </a>
+              <a href={`#${nextSlide}`} className="btn btn-circle">
+                ❯
+              </a>
             </div>
           </div>
-        </div>
-        <div id="item3" className="carousel-item w-full">
-          {/* img-3 */}
-          <div
-            className="hero h-[300px] md:h-[550px]"
-            style={{
-              backgroundImage:
-                "url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp)",
-            }}
-          >
-            <div className="hero-overlay"></div>
-            <div className="hero-content text-neutral-content text-center">
-              <div className="max-w-md">
-                <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                <p className="mb-5">
-                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                  assumenda excepturi exercitationem quasi. In deleniti eaque
-                  aut repudiandae et a id nisi.
-                </p>
-                <button className="btn btn-primary">Get Started</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="item4" className="carousel-item w-full">
-          {/* img-4 */}
-          <div
-            className="hero h-[300px] md:h-[550px]"
-            style={{
-              backgroundImage:
-                "url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp)",
-            }}
-          >
-            <div className="hero-overlay"></div>
-            <div className="hero-content text-neutral-content text-center">
-              <div className="max-w-md">
-                <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                <p className="mb-5">
-                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                  assumenda excepturi exercitationem quasi. In deleniti eaque
-                  aut repudiandae et a id nisi.
-                </p>
-                <button className="btn btn-primary">Get Started</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="flex w-full justify-center gap-10 py-2">
-        <a href="#item1" className="btn btn-xl">
-          1
-        </a>
-        <a href="#item2" className="btn btn-xl">
-          2
-        </a>
-        <a href="#item3" className="btn btn-xl">
-          3
-        </a>
-        <a href="#item4" className="btn btn-xl">
-          4
-        </a>
-      </div>
+        );
+      })}
     </div>
   );
 };

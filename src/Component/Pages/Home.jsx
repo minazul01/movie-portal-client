@@ -1,4 +1,4 @@
-import React from "react";
+
 import Header from "../Header/Header";
 import FeatureMovie from "../Header/FeatureMovie";
 import NewRelease from "../Header/NewRelease";
@@ -13,6 +13,7 @@ const Home = () => {
         <Watch />
         <NewRelease />
       </div>
+      
     </>
   );
 };

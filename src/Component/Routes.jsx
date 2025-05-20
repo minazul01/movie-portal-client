@@ -11,11 +11,14 @@ import ContactUs from "./Pages/ContactUs";
 import Register from "./Pages/authPages/Register";
 import Login from "./Pages/authPages/Login";
 import PrivateRoute from "./Pages/authPages/PrivateRoute";
+import UpdateMovie from "./Pages/UpdateMovie";
+import Error from "./Pages/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
@@ -58,7 +61,7 @@ const router = createBrowserRouter([
         loader: () => fetch("http://localhost:8000/favourites"),
       },
       {
-        path: "/add_us",
+        path: "/contact_us",
         element: <ContactUs />,
       },
       {
@@ -69,6 +72,10 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register />,
       },
+      {
+        path: "/update_movie/:id",
+        element: <UpdateMovie />
+      }
     ],
   },
 ]);

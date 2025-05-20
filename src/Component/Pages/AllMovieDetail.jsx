@@ -69,11 +69,11 @@ const AllMovieDetail = () => {
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
-            if(data){
+            if (data) {
               Swal.fire({
                 title: "Favourite!",
                 text: "Your file has been added.",
-                icon: "success"
+                icon: "success",
               });
             }
             navigate("/all_movies");
@@ -83,7 +83,7 @@ const AllMovieDetail = () => {
   };
 
   return (
-    <div>
+    <div className=" container mx-auto">
       <div className="md:w-full card lg:card-side bg-base-100 shadow-sm my-20">
         <figure className="lg:w-1/2">
           <img src={poster} alt="Album" />
@@ -110,6 +110,14 @@ const AllMovieDetail = () => {
             >
               Delete Movie
             </button>
+            <Link to={`/update_movie/${_id}`}>
+              <button
+                // onClick={() => handleDelete(_id)}
+                className="p-2 bg-lime-400 rounded-md hover:p-2 btn btn-outline cursor-pointer"
+              >
+                Update Movie
+              </button>
+            </Link>
             <button
               onClick={() => handleFavourite(data)}
               className="p-2 bg-lime-400 rounded-md hover:p-2 btn btn-outline cursor-pointer"
@@ -119,7 +127,7 @@ const AllMovieDetail = () => {
           </div>
           <Link
             className="p-2 bg-lime-400 rounded-md hover:p-2 btn btn-outline cursor-pointer"
-            to={"/all_movie"}
+            to="/all_movies"
           >
             <button>All-Movie</button>
           </Link>

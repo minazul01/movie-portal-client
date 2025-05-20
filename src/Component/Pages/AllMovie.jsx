@@ -15,7 +15,7 @@ const AllMovie = () => {
         musical ambitions, social horror, heroic battles, and emotional
         journeys, offering something unforgettable for every viewer.
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {data?.map((card) => (
           <AllMovieCard 
           key={card._id}

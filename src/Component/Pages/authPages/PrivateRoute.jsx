@@ -7,7 +7,7 @@ const PrivateRoute = ({children}) => {
   // console.log(location)
     const {user, loading} = useContext(authentication);
     if(loading){
-      return  <span className="loading loading-bars loading-xl"></span>
+      return  <div className='flex items-center justify-center my-20'><span className="loading loading-bars loading-xl"></span></div>
     }
 
     if(!user){
