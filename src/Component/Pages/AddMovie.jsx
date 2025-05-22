@@ -193,7 +193,7 @@ const AddMovie = () => {
     };
 
    
-    fetch("http://localhost:8000/features", {
+    fetch("https://movie-portal-server-six-flax.vercel.app", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

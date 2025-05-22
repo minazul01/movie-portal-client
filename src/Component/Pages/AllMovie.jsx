@@ -10,7 +10,7 @@ const AllMovie = () => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:8000/features?searchParams=${search}`)
+    fetch(`https://movie-portal-server-six-flax.vercel.app?searchParams=${search}`)
       .then((res) => res.json())
       .then((data) => {
         setData(data);

@@ -23,12 +23,12 @@ const AllMovieDetail = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:8000/features/${id}`, {
+        fetch(`https://movie-portal-server-six-flax.vercel.app/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+           
             if (data.deletedCount == 1) {
               Swal.fire({
                 title: "Deleted!",
@@ -68,7 +68,7 @@ const AllMovieDetail = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+          
             if (data) {
               Swal.fire({
                 title: "Favourite!",

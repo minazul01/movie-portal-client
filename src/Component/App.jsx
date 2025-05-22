@@ -9,7 +9,7 @@ export const dataContext = createContext();
 function App() {
   const [feature, setFeature] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:8000/features")
+    fetch("https://movie-portal-server-six-flax.vercel.app")
       .then((res) => res.json())
       .then((data) => {
         setFeature(data);

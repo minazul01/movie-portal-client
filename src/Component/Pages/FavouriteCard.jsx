@@ -22,7 +22,7 @@ const FavouriteCard = ({card, setData, fData}) => {
           confirmButtonText: "Yes, delete it!",
         }).then((result) => {
           if (result.isConfirmed) {
-            fetch(`http://localhost:8000/favourites/${id}`, {
+            fetch(`https://movie-portal-server-six-flax.vercel.app/favourites/${id}`, {
               method: "DELETE",
             })
               .then((res) => res.json())

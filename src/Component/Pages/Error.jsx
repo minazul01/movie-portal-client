@@ -2,8 +2,7 @@ import { Link, useRouteError } from "react-router-dom";
 
 const Error = () => {
   const error = useRouteError();
-  console.log(error);
-  console.log(error.error.message);
+ 
   return (
     <div className="boxShadow px-10 w-full lg:flex-row gap-[30px] lg:gap-0 flex-col flex items-center justify-evenly py-20 rounded-xl">
       <div className="w-[80%] lg:w-[40%]">
