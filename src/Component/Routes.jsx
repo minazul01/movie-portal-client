@@ -36,7 +36,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: async ({ params }) => {
-          const res = await fetch("https://movie-portal-server-six-flax.vercel.ap/features");
+          const res = await fetch("https://movie-portal-server-opal.vercel.app/features");
           const data = await res.json();
           const singleData = data.find((data) => data._id == params.id);
           
@@ -58,7 +58,7 @@ const router = createBrowserRouter([
             <Favourite />
           </PrivateRoute>
         ),
-        loader: () => fetch("https://movie-portal-server-six-flax.vercel.ap/favourites"),
+        loader: () => fetch("https://movie-portal-server-opal.vercel.app/favourites"),
       },
       {
         path: "/contact_us",
@@ -75,7 +75,7 @@ const router = createBrowserRouter([
       {
         path: "/update_movie/:id",
         element: <UpdateMovie />,
-        loader: ({params}) => fetch(`https://movie-portal-server-six-flax.vercel.ap/features/${params.id}`)
+        loader: ({params}) => fetch(`https://movie-portal-server-opal.vercel.app/features/${params.id}`)
       }
     ],
   },

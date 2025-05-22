@@ -37,7 +37,7 @@ const UpdateMovie = () => {
       confirmButtonText: "Yes, update it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://movie-portal-server-six-flax.vercel.ap/features/${singleData?._id}`, {
+        fetch(`https://movie-portal-server-opal.vercel.app/features/${singleData?._id}`, {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",

@@ -24,3 +24,5 @@ Utilis/
 *.njsproj
 *.sln
 *.sw?
+
+.vercel
