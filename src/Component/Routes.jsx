@@ -74,7 +74,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/update_movie/:id",
-        element: <UpdateMovie />
+        element: <UpdateMovie />,
+        loader: ({params}) => fetch(`http://localhost:8000/features/${params.id}`)
       }
     ],
   },
