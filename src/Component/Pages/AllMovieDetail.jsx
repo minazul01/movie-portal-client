@@ -23,7 +23,7 @@ const AllMovieDetail = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://movie-portal-server-six-flax.vercel.app/${id}`, {
+        fetch(`https://movie-portal-server-six-flax.vercel.ap/features/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -59,7 +59,7 @@ const AllMovieDetail = () => {
       confirmButtonText: "Yes, favouries it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch("http://localhost:8000/favourites", {
+        fetch("https://movie-portal-server-six-flax.vercel.ap/favourites", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

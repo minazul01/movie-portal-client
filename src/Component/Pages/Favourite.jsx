@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import { BsArrowRight } from "react-icons/bs";
+
 import FavouriteCard from "./FavouriteCard";
 
 const Favourite = () => {

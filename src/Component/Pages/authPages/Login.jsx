@@ -76,7 +76,7 @@ const Login = () => {
               </legend>
               <button
                 onClick={googleLog}
-                className="bg-[#3B9DF8] text-white rounded-md mt-5 cursor-pointer py-[5px] pl-[5px] pr-4 flex items-center gap-[10px] text-[1rem] hover:bg-blue-500 transition-all duration-200"
+                className=" bg-[#3B9DF8] text-white rounded-md mt-5 cursor-pointer py-[5px] pl-[5px] pr-4 flex items-center justify-center gap-[10px] text-[1rem] hover:bg-blue-500 transition-all duration-200"
               >
                 <div className="p-2 rounded-full bg-white">
                   <img
